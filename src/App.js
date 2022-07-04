@@ -1,8 +1,12 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
-
+import { Navbar } from "./navbar";
+import { Bienvenido } from "./pestañas/Bienvenido";
+import { Estudiante } from "./pestañas/Estudiante";
+import { Pokemons } from "./pestañas/Pokemons";
+import { Pokemon } from "./pestañas/Pokemon";
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
   const [id, setId] = useState(800)
@@ -56,26 +60,21 @@ function App() {
     setId(a)
     }
   }
-
-
-  return (
-    <div className="App" >
-    <div className="imagen" >
-        <h1 className="">{pokemon.name}</h1>  
-        <img src={pokemon.image} alt="pokemon" />   
-        <h1>Experiencia:{pokemon.experience}</h1>
-        <h1>Peso:{pokemon.weight} Kg.</h1>
-        </div>
-        <button onClick={() => pokemonReducir(id)} className="boton">Atras</button>
-        <button onClick={() => obtenerInformacion(id)} className="boton">Siguiente</button>
-        <div class="center-on-page">
-  <br></br>
-  <br></br>
-</div>
+  
+    return (
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Bienvenido />} />
+          <Route path="/pokemons" element={<Pokemons />} />
+          <Route path="/pokemon/:id" element={<Pokemon />} />
+          <Route path="/191542" element={<Estudiante />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
 
 
 export default App;
