@@ -112,7 +112,7 @@ export const Pokemon = () => {
             </div>
             <button
               className='bg-yellow-500  text-red-500 font-bold'
-              onClick={() => navigate(-1)}>Regresar a la pagina anterior</button>
+              onClick={() => navigate(-1)}>Página anterior</button>
 
           </div>
         </div>
